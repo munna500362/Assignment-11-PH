@@ -2,7 +2,7 @@
     list-style: none;
 }
 
-/* #footer-div-btn > button > li > a > img{
-    width: 40px;
-    height: 40px;
-} */
+#footer-div-btn > ul > li > a > img:hover{
+  color: red;
+  /* background-color: aqua; */
+}
