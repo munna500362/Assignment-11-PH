@@ -5,4 +5,9 @@
 #footer-div-btn > ul > li > a > img:hover{
   color: red;
   /* background-color: aqua; */
-}
+  }
+
+
+  .active{
+    color: red;
+  }
