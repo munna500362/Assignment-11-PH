@@ -1,28 +1,18 @@
-// function removecontainer (){
-//     console.log()
-// }
-
-// removecontainer()
-function lessonButton (){
-    fetch("https://openapi.programming-hero.com/api/levels/all")
-    .then((res) => res.json())
-    .then((data) => LessonDefined(data.data))
-}
-
 // 1st API
 // id: 101
 // lessonName : "Basic Vocabulary"
 // level_no: 1
 
 
-// 2 nd API
-// id: 4
-// level: 5
-// meaning: "পরিশ্রমী"
-// pronunciation: "ডিলিজেন্ট"
-// word: "Diligent"
+
+function lessonButton (){
+    fetch("https://openapi.programming-hero.com/api/levels/all")
+    .then((res) => res.json())
+    .then((data) => LessonDefined(data.data))
+}
 
 function LessonDefined (data){
+    // console.log(data)
     data.forEach(lesson => {
 
         const LessonBtnId = document.getElementById('Lesson-btn-id');
@@ -40,6 +30,15 @@ function LessonDefined (data){
 }
 
 
+
+// 2 nd API
+// id: 4
+// level: 5
+// meaning: "পরিশ্রমী"
+// pronunciation: "ডিলিজেন্ট"
+// word: "Diligent"
+
+
 function cardshow(id){
     const url = `https://openapi.programming-hero.com/api/level/${id}`
     fetch(url)
@@ -51,7 +50,7 @@ function cardshow(id){
  function showcardfunction(cards){        
 
     cards.forEach(card => {
-        console.log(card.id)
+        // console.log(card)
         const cardSection = document.getElementById("card-section");
         const createcard = document.createElement('div');
         // console.log(createcard.length)
@@ -67,7 +66,7 @@ function cardshow(id){
 
                      <button class="btn btn-sm">
                           
-                        <i class="fa-solid fa-circle-info" onclick = "iconButton(${cards.id})"></i>
+                        <i class="fa-solid fa-circle-info" onclick = " iconButton(${card.id}) " ></i>
                      </button>
                      <button class="btn btn-sm">
                         <i class="fa-solid fa-volume-high text-black"></i>
@@ -116,7 +115,7 @@ function cardshow(id){
 function iconButton(id){
     const url = 
             `
-                https://openapi.programming-hero.com/api/words/all
+               https://openapi.programming-hero.com/api/word/${id}    
             `
         fetch(url)
         .then(res => res.json())
@@ -125,30 +124,36 @@ function iconButton(id){
 
 function showIconDetails(details){
     // console.log(details)
-     document.getElementById("clickBtn").showModal();
-    const ClickBtnDetails = document.getElementById("clickBtnDetails");
-    const ClickBtnDetailsDiv = document.createElement('div');
-    ClickBtnDetailsDiv.innerHTML = `
-        <div>
-            <h2> ${details.word} (${details.pronunciation}) </h2>
-            <p>meaning</p>
-            <p>${details.meaning}</p>
-        </div>
+        // console.log(data)
+            document.getElementById("clickBtn").showModal();
+        const ClickBtnDetails = document.getElementById("clickBtnDetails");
+        const ClickBtnDetailsDiv = document.createElement('div');
+        ClickBtnDetailsDiv.innerHTML = 
         
-        <div>
-            <h2> EXAMPLE </h2>
-            <p> ${details.message}</p>
-        </div>
+        `
+             <h2>${details.word} (${details.pronunciation}) </h2>
+         `
+        ClickBtnDetails.appendChild(ClickBtnDetailsDiv)
+    }
 
-    `
 
-    ClickBtnDetails.appendChild(ClickBtnDetailsDiv)
+    // console.log(data.id)
+        // document.getElementById("clickBtn").showModal();
+        // const ClickBtnDetails = document.getElementById("clickBtnDetails");
+        // const ClickBtnDetailsDiv = document.createElement('div');
+        // ClickBtnDetailsDiv.innerHTML = `
+        //     <h2>${data.word} (${data.pronunciation}) </h2>
+        // `
+
+        // ClickBtnDetails.appendChild(ClickBtnDetailsDiv)
+    
+//    }
+    
 
     // console.log("HI guys")
-     
-}
 
-iconButton()
+
+// iconButton()
 
 
 lessonButton()
