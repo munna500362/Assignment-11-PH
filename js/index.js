@@ -16,7 +16,6 @@ function LessonDefined (data){
     data.forEach(lesson => {
 
         const LessonBtnId = document.getElementById('Lesson-btn-id');
-       
         // console.log(lesson)
         const createButton = document.createElement('div');
         // console.log(lesson)
@@ -52,11 +51,12 @@ function cardshow(id){
     cards.forEach(card => {
         // console.log(card)
         const cardSection = document.getElementById("card-section");
+        
         const createcard = document.createElement('div');
         // console.log(createcard.length)
-        createcard.classList.add("col-span-3", "flex" )
+        createcard.classList.add("col-span-3", "flex", "gap-5", "text-center",  "py-10", "px-3", "bg-gray-200", "shadow-sm" )
         createcard.innerHTML = `
-            <div class="card bg-base-100 w-96 shadow-sm py-5 px-3">
+            <div class="card bg-base-100 w-96 shadow-sm gap-5 justify-between text-center  py-10 px-3 bg-gray-50 ">
                 <div class = "space-y-3">
                     <h1 class= "font-bold text-2xl">${card.word}</h1>
                     <p class = "text-xl">meaning/pronunciation</p>
@@ -124,36 +124,40 @@ function iconButton(id){
 
 function showIconDetails(details){
     // console.log(details)
-        // console.log(data)
+        console.log(details.synonyms)
             document.getElementById("clickBtn").showModal();
         const ClickBtnDetails = document.getElementById("clickBtnDetails");
+        ClickBtnDetails.innerHTML = "";
         const ClickBtnDetailsDiv = document.createElement('div');
+
+         let synonymButtons = "";
+        details.synonyms.forEach(word => {
+        synonymButtons += `<button class="btn btn-sm m-1">${word}</button>`;
+        });
+
+
+
         ClickBtnDetailsDiv.innerHTML = 
         
-        `
-             <h2>${details.word} (${details.pronunciation}) </h2>
+        `<div class = "text-start space-y-5">
+             <h2 class = "font-bold text-2xl">${details.word} (${details.pronunciation}) </h2>
+             <div class = "space-y-2">
+                    <p class = "font-bold">meaning</p>
+                    <p class = "font-semibold">${details.meaning}</p>
+             </div>
+             
+             <div class = "space-y-2">
+                <h2 class = "font-bold">Example</h2>
+                <p>${details.sentence}
+             </div>
+             <div class = "space-y-2">
+                <h3 class = "font-bold"> সমার্থক শব্দ গুলো</h3>
+                <div>${synonymButtons} </div>
+             </div>
+         </div>
          `
         ClickBtnDetails.appendChild(ClickBtnDetailsDiv)
     }
-
-
-    // console.log(data.id)
-        // document.getElementById("clickBtn").showModal();
-        // const ClickBtnDetails = document.getElementById("clickBtnDetails");
-        // const ClickBtnDetailsDiv = document.createElement('div');
-        // ClickBtnDetailsDiv.innerHTML = `
-        //     <h2>${data.word} (${data.pronunciation}) </h2>
-        // `
-
-        // ClickBtnDetails.appendChild(ClickBtnDetailsDiv)
-    
-//    }
-    
-
-    // console.log("HI guys")
-
-
-// iconButton()
 
 
 lessonButton()

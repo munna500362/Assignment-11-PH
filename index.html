@@ -102,7 +102,7 @@
              
             </div>
         <!-- Card Section -->
-        <div id="card-section" class="grid grid-cols-12 gap-5 justify-between text-center  py-10 px-3 bg-gray-50 shadow-sm ">
+        <div id="card-section" class="grid grid-cols-12 ">
           
               
             
@@ -112,14 +112,20 @@
                         <!-- Open the modal using ID.showModal() method -->
             <!-- <button class="btn" onclick="my_modal_1.showModal()">open modal</button> -->
             <dialog id="clickBtn" class="modal">
-            <div id="clickBtnDetails" class="modal-box">
+            <div class="modal-box">
                  
-                <div class="modal-action">
+                 <div class="flex flex-col gap-6">
+
+                 <!-- Dynamic Content -->
+                 <div id="clickBtnDetails"></div>
+
+                <div class="modal-action flex justify-start text-start">
                     <form method="dialog">
                         <!-- if there is a button in form, it will close the modal -->
-                        <button class="btn">Close</button>
+                        <button class="btn hover:bg-[#422AD5] hover:text-white text-start">Complete Learning</button>
                     </form>
                 </div>
+             </div>
             </div>
             </dialog>
         </div>
