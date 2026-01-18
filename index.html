@@ -24,7 +24,7 @@
 
 <body>
 
-    <header class="fixed top-0 left-0 w-full h-20 z-50 py-5 bg-gray-100 shadow-sm">
+    <header class="headerHidden fixed top-0 left-0 w-full h-20 z-50 py-5 bg-gray-100 shadow-sm hidden">
         <nav class="flex justify-between items-center w-11/12 mx-auto">
             <!-- navber logo and brand -->
             <div>
@@ -68,14 +68,13 @@
                 <br> যাবে অন্য একটি Level এ
             </p>
             <div>
-                <form action="" class="space-y-2 ">
-                <input type="text"  placeholder="Enter Your Name" class="outline-none bg-white border-gray-500 shadow">
-                <br>
-
-                <input type="password" placeholder="Enter Your Password" class="outline-none bg-white border-gray-500 shadow">
-                <br><br>
-                <button class="btn btn-large border-[#422AD5] hover:bg-[#422AD5] hover:text-white">Get Start</button>
-            </form>
+                <!-- <form action="" class="space-y-2 "> -->
+                    <input type="text"  placeholder="Enter Your Name" class="outline-none bg-white border-gray-500 shadow">
+                    <br><br>
+                    <input id="inputBtn" type="password" placeholder="Enter Your Password" class="password-btn outline-none bg-white border-gray-500 shadow">
+                    <br><br>
+                    <button  onclick="startBtn()" class="btn btn-large border-[#422AD5] hover:bg-[#422AD5] hover:text-white">Get Start</button>
+                <!-- </form> -->
             </div>
             
         </div>
@@ -94,17 +93,11 @@
         </div>
 
 
-          <!-- No content Section -->
-            <div class="col-span-12 md:col-span-6  w-full py-20 bg-gray-50 shadow-sm mb-10 hidden">
-              
-                    <p>আপনি এখনো কোন Lesson Select করেন নি</p>
-                    <h1 class="text-4xl font-medium">একটি Lesson Select করুন।</h1>
-             
-            </div>
+        
         <!-- Card Section -->
-        <div id="card-section" class="grid grid-cols-12 ">
-          
-              
+        <div id="card-section" class="grid grid-cols-12 gap-5 text-center py-10 px-3 bg-gray-200 shadow-sm">
+         
+        
             
         </div>
 

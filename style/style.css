@@ -8,6 +8,8 @@
   }
 
 
-  .active{
-    color: red;
-  }
+ .active{
+  background-color: #422AD5;
+  color: white;
+  border: 1px solid #422AD5;
+}

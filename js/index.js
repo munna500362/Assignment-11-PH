@@ -1,3 +1,30 @@
+function startBtn(){
+    const inputBtn = document.getElementById("inputBtn").value;
+    console.log("Fack you")
+   
+    if(Number(inputBtn) === 12345){
+        const headerHidden = document.getElementsByClassName("headerHidden").value[0];
+        headerHidden.classList.remove("hidden")
+        inputBtn.value= ""
+    }
+    else{
+        alert("Try again")
+                inputBtn.value = ""
+
+    }
+}
+
+
+
+function removebutton() {
+    const activeBtns = document.getElementsByClassName("active");
+
+    while (activeBtns.length > 0) {
+        activeBtns[0].classList.remove("active");
+    }
+}
+
+
 // 1st API
 // id: 101
 // lessonName : "Basic Vocabulary"
@@ -20,7 +47,7 @@ function LessonDefined (data){
         const createButton = document.createElement('div');
         // console.log(lesson)
         createButton.innerHTML= `
-        <button onclick="cardshow(${lesson.level_no})" class=" btn hover:border-[#422AD5] hover:bg-[#422AD5] hover:text-white">Lesson-${lesson.level_no}</button>
+        <button id="Lesson-${lesson.level_no}" onclick="cardshow(${lesson.level_no})" class=" btn hover:border-[#422AD5] hover:bg-[#422AD5] hover:text-white">Lesson-${lesson.level_no}</button>
         `
         LessonBtnId.appendChild(createButton);
 
@@ -42,19 +69,40 @@ function cardshow(id){
     const url = `https://openapi.programming-hero.com/api/level/${id}`
     fetch(url)
     .then((res) => (res.json()))
-    .then((data) => showcardfunction(data.data))
+    .then((data) =>{
+        removebutton ()
+        const activeBtn = document.getElementById(`Lesson-${id}`);
+        activeBtn.classList.add("active");
+
+        
+        showcardfunction(data.data)
+})
+    }
+        
+        
 
     // console.log(id)
-}
  function showcardfunction(cards){        
+    const cardSection = document.getElementById("card-section");
+    cardSection.innerHTML= "";
+
+    if(cards.length === 0){
+        cardSection.innerHTML = `
+        <div id="showalart" class="col-span-12 w-full mx-auto py-20 mb-10">
+                    <img class="w-[120px] mx-auto" src="image/alert-error.png" alt="" srcset="">
+                    <p>আপনি এখনো কোন Lesson Select করেন নি</p>
+                    <h1 class="text-4xl font-medium">একটি Lesson Select করুন।</h1>
+             
+            </div>
+        `
+    }
 
     cards.forEach(card => {
-        // console.log(card)
-        const cardSection = document.getElementById("card-section");
-        
-        const createcard = document.createElement('div');
+
+
+              const createcard = document.createElement('div');
         // console.log(createcard.length)
-        createcard.classList.add("col-span-3", "flex", "gap-5", "text-center",  "py-10", "px-3", "bg-gray-200", "shadow-sm" )
+        createcard.classList.add("col-span-3", "flex" )
         createcard.innerHTML = `
             <div class="card bg-base-100 w-96 shadow-sm gap-5 justify-between text-center  py-10 px-3 bg-gray-50 ">
                 <div class = "space-y-3">
@@ -82,8 +130,9 @@ function cardshow(id){
             </div>
         `
         cardSection.appendChild(createcard)
-    })
-}
+        })
+    }
+
 
 
 
