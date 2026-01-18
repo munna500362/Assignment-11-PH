@@ -1,20 +1,20 @@
 function startBtn(){
-    const inputBtn = document.getElementById("inputBtn").value;
+    const inputField = document.getElementById("inputField");
+    const inputFieldValue = Number(inputField.value);
     console.log("Fack you")
    
-    if(Number(inputBtn) === 12345){
-        const headerHidden = document.getElementsByClassName("headerHidden").value[0];
-        headerHidden.classList.remove("hidden")
-        inputBtn.value= ""
+    if(inputFieldValue === 12345){
+        const headerHidden = document.getElementsByClassName("headerHidden")[0];
+        headerHidden.classList.remove("hidden");
+        inputField.value = ""
+        
     }
     else{
         alert("Try again")
-                inputBtn.value = ""
+        inputField.value = ""
 
     }
 }
-
-
 
 function removebutton() {
     const activeBtns = document.getElementsByClassName("active");
@@ -23,7 +23,6 @@ function removebutton() {
         activeBtns[0].classList.remove("active");
     }
 }
-
 
 // 1st API
 // id: 101
